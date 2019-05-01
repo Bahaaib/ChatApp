@@ -18,4 +18,8 @@
     <string name="buyer">Buyer</string>
     <string name="seller">Seller</string>
 
+    <!-- Home Activity -->
+    <string name="toolbar_text">Home</string>
+
+
 </resources>
