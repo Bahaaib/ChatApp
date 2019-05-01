@@ -28,6 +28,8 @@
     <dimen name="info_button_height">25dp</dimen>
     <dimen name="info_button_margin_end">10dp</dimen>
     <dimen name="app_title_font_size">24sp</dimen>
+    <dimen name="toolbar_logout_font_size">18sp</dimen>
+    <dimen name="toolbar_logout">10dp</dimen>
 
     <!-- Group Card -->
     <dimen name="pc_cv_corner_radius">3dp</dimen>

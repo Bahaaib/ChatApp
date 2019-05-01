@@ -1,16 +1,21 @@
 package com.example.bahaa.chatapp.Home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
+import com.example.bahaa.chatapp.Auth.LoginActivity;
 import com.example.bahaa.chatapp.R;
 import com.example.bahaa.chatapp.Root.PagerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class HomeActivity extends AppCompatActivity {
@@ -20,9 +25,14 @@ public class HomeActivity extends AppCompatActivity {
     TabLayout tabLayout;
     @BindView(R.id.pager)
     ViewPager viewPager;
+    @BindView(R.id.logout)
+    TextView logout;
 
     //Butterknife
     private Unbinder unbinder;
+
+    //Firebase
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +41,9 @@ public class HomeActivity extends AppCompatActivity {
 
         //inject Views via Butterknife..
         unbinder = ButterKnife.bind(this);
+
+        //Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         setSupportActionBar(toolbar);
 
@@ -64,6 +77,16 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @OnClick(R.id.logout)
+    public void forceLogout() {
+        mAuth.signOut();
+        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
     }
 
     @Override

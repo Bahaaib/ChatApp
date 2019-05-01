@@ -26,6 +26,17 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/toolbar_logout"
+                    android:text="@string/toolbar_logout"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/toolbar_logout_font_size" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
