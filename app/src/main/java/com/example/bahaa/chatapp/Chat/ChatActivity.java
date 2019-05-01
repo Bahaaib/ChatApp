@@ -47,7 +47,6 @@ public class ChatActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
 
-
     private ArrayList<MessageModel> messagesList;
     private MessageRecyclerAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
@@ -82,8 +81,9 @@ public class ChatActivity extends AppCompatActivity {
 
         linearLayoutManager = new LinearLayoutManager(this);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
+        linearLayoutManager.setStackFromEnd(true);
 
+        recyclerView.setLayoutManager(linearLayoutManager);
 
 
     }
@@ -122,12 +122,14 @@ public class ChatActivity extends AppCompatActivity {
     @OnClick(R.id.send_fab)
     public void sendMessage() {
         final String messageBody = messageBox.getText().toString();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        MessageModel message = new MessageModel();
-        message.setMessageSenderName(currentUser.getEmail());
-        message.setMessageBody(messageBody);
+        if (!messageBody.isEmpty()) {
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            MessageModel message = new MessageModel();
+            message.setMessageSenderName(currentUser.getEmail());
+            message.setMessageBody(messageBody);
 
-        mRef.push().setValue(message);
+            mRef.push().setValue(message);
+        }
     }
 
     @Override
