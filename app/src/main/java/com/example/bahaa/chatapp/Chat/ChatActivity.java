@@ -12,6 +12,8 @@ import android.widget.EditText;
 import com.example.bahaa.chatapp.R;
 import com.example.bahaa.chatapp.Root.MessageModel;
 import com.example.bahaa.chatapp.Root.MessageRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +33,8 @@ public class ChatActivity extends AppCompatActivity {
     FloatingActionButton sendFab;
     @BindView(R.id.message_box)
     EditText messageBox;
+    @BindView(R.id.messages_rv)
+    RecyclerView recyclerView;
 
     private String dbType;
     private String dbTarget;
@@ -39,8 +43,10 @@ public class ChatActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference mRef;
 
-    @BindView(R.id.messages_rv)
-    RecyclerView recyclerView;
+    //Firebase
+    private FirebaseAuth mAuth;
+
+
 
     private ArrayList<MessageModel> messagesList;
     private MessageRecyclerAdapter adapter;
@@ -57,6 +63,8 @@ public class ChatActivity extends AppCompatActivity {
 
         //inject Views via Butterknife..
         unbinder = ButterKnife.bind(this);
+        //Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         messagesList = new ArrayList<>();
 
@@ -112,10 +120,11 @@ public class ChatActivity extends AppCompatActivity {
 
 
     @OnClick(R.id.send_fab)
-    public void sendTestMessage() {
+    public void sendMessage() {
         final String messageBody = messageBox.getText().toString();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
         MessageModel message = new MessageModel();
-        message.setMessageSenderName(dbTarget);
+        message.setMessageSenderName(currentUser.getEmail());
         message.setMessageBody(messageBody);
 
         mRef.push().setValue(message);
