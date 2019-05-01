@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".Chat.ChatActivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/messages_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:scrollbars="vertical" />
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +35,7 @@
             android:textColorHint="@color/colorWhite" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/send_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
