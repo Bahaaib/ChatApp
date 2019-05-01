@@ -12,10 +12,11 @@ import com.example.bahaa.chatapp.R;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class GroupRecyclerAdapter extends RecyclerView.Adapter {
 
-    private ArrayList<GroupModel> adapterModel;
+    private ArrayList<String> adapterModel;
     private Context context;
 
     {
@@ -23,7 +24,7 @@ public class GroupRecyclerAdapter extends RecyclerView.Adapter {
     }
 
 
-    public GroupRecyclerAdapter(Context context, ArrayList<GroupModel> adapterModel) {
+    public GroupRecyclerAdapter(Context context, ArrayList<String> adapterModel) {
         this.context = context;
         this.adapterModel = adapterModel;
     }
@@ -33,6 +34,7 @@ public class GroupRecyclerAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.group_card, parent, false);
+
         return new GroupRecyclerAdapter.GroupViewHolder(view);
     }
 
@@ -58,6 +60,7 @@ public class GroupRecyclerAdapter extends RecyclerView.Adapter {
 
         public GroupViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
 
 
         }
@@ -65,7 +68,7 @@ public class GroupRecyclerAdapter extends RecyclerView.Adapter {
 
         //Here where all the glory being made..!
         public void BindView(final int position) {
-            groupTitle.setText(adapterModel.get(position).getGroupTitle());
+            groupTitle.setText(adapterModel.get(position));
         }
 
 
