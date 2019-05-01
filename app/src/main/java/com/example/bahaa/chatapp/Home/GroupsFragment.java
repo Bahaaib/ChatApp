@@ -29,6 +29,8 @@ import butterknife.Unbinder;
 public class GroupsFragment extends Fragment {
 
     private final String GROUPS_DB = "groups";
+
+
     @BindView(R.id.groups_rv)
     RecyclerView recyclerView;
     //Firebase DB
