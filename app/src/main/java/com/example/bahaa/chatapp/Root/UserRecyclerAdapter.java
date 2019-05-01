@@ -44,7 +44,7 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter {
     //Here We tell the RecyclerView what to show at each CardView..
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ((GroupRecyclerAdapter.GroupViewHolder) holder).BindView(position);
+        ((UserRecyclerAdapter.UserViewHolder) holder).BindView(position);
 
     }
 

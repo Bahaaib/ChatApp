@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bahaa.chatapp.R;
-import com.example.bahaa.chatapp.Root.GroupRecyclerAdapter;
+import com.example.bahaa.chatapp.Root.UserRecyclerAdapter;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,7 +38,7 @@ public class ContactsFragment extends Fragment {
     private FirebaseDatabase database;
     private DatabaseReference mRef;
     private ArrayList<String> usersList;
-    private GroupRecyclerAdapter adapter;
+    private UserRecyclerAdapter adapter;
     private LinearLayoutManager linearLayoutManager;
 
     private Unbinder unbinder;
@@ -66,7 +66,7 @@ public class ContactsFragment extends Fragment {
 
         callDatabase();
 
-        adapter = new GroupRecyclerAdapter(this.getActivity(), usersList);
+        adapter = new UserRecyclerAdapter(this.getActivity(), usersList);
 
         recyclerView.setAdapter(adapter);
 
@@ -96,7 +96,6 @@ public class ContactsFragment extends Fragment {
 
     private void fetchData(DataSnapshot dataSnapshot) {
         for (DataSnapshot db : dataSnapshot.getChildren()) {
-            String groupTitle = db.getValue(String.class);
             usersList.add(db.getKey());
 
 

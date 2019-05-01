@@ -95,7 +95,6 @@ public class GroupsFragment extends Fragment {
 
     private void fetchData(DataSnapshot dataSnapshot) {
         for (DataSnapshot db : dataSnapshot.getChildren()) {
-            String groupTitle = db.getValue(String.class);
             groupsList.add(db.getKey());
 
 

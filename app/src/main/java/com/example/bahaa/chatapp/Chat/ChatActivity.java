@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Toast;
+import android.widget.EditText;
 
 import com.example.bahaa.chatapp.R;
 import com.example.bahaa.chatapp.Root.MessageModel;
@@ -29,6 +29,8 @@ public class ChatActivity extends AppCompatActivity {
 
     @BindView(R.id.send_fab)
     FloatingActionButton sendFab;
+    @BindView(R.id.message_box)
+    EditText messageBox;
 
     private String dbType;
     private String dbTarget;
@@ -36,7 +38,6 @@ public class ChatActivity extends AppCompatActivity {
     //Firebase DB
     private FirebaseDatabase database;
     private DatabaseReference mRef;
-    private DatabaseReference dbWriterRef;
 
     @BindView(R.id.messages_rv)
     RecyclerView recyclerView;
@@ -57,8 +58,13 @@ public class ChatActivity extends AppCompatActivity {
         //inject Views via Butterknife..
         unbinder = ButterKnife.bind(this);
 
+        messagesList = new ArrayList<>();
+
+        dbType = getIntent().getStringExtra("db_type");
+        dbTarget = getIntent().getStringExtra("db_target");
+
         database = FirebaseDatabase.getInstance();
-        mRef = database.getReference();
+        mRef = database.getReference().child(dbType).child(dbTarget);
 
         callDatabase();
 
@@ -75,7 +81,7 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void callDatabase() {
-        mRef.child(GROUPS_DB).addValueEventListener(new ValueEventListener() {
+        mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //Reset List of groups
@@ -107,13 +113,10 @@ public class ChatActivity extends AppCompatActivity {
 
     @OnClick(R.id.send_fab)
     public void sendTestMessage() {
+        final String messageBody = messageBox.getText().toString();
         MessageModel message = new MessageModel();
-
-        message.setMessageSenderName("Ammar");
-        message.setMessageBody("This is my first message");
-
-        Toast.makeText(getApplicationContext(), "Message added",
-                Toast.LENGTH_LONG).show();
+        message.setMessageSenderName(dbTarget);
+        message.setMessageBody(messageBody);
 
         mRef.push().setValue(message);
     }
