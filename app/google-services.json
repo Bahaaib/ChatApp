@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "737684787991",
+    "firebase_url": "https://chatapp-c2956.firebaseio.com",
+    "project_id": "chatapp-c2956",
+    "storage_bucket": "chatapp-c2956.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737684787991:android:adea1a2c931ca3af",
+        "android_client_info": {
+          "package_name": "com.example.bahaa.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737684787991-i0rar1otga44o5fmm68nd0sq0cpcsale.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyAH8PIJkLUC0VOVBxJAVgHlLpsTQWbOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737684787991-i0rar1otga44o5fmm68nd0sq0cpcsale.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
