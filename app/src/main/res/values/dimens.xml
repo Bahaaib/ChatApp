@@ -22,11 +22,15 @@
     <dimen name="forgot_margin_top">45dp</dimen>
 
 
-    <!-- Home Activity-->
+    <!-- Home Activity -->
     <dimen name="elevation">6dp</dimen>
     <dimen name="info_button_width">25dp</dimen>
     <dimen name="info_button_height">25dp</dimen>
     <dimen name="info_button_margin_end">10dp</dimen>
     <dimen name="app_title_font_size">24sp</dimen>
+
+    <!-- Group Card -->
+    <dimen name="pc_cv_corner_radius">3dp</dimen>
+
 
 </resources>
