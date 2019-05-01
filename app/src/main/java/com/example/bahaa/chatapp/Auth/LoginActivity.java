@@ -1,5 +1,6 @@
 package com.example.bahaa.chatapp.Auth;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -7,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bahaa.chatapp.R;
+import com.example.bahaa.chatapp.Root.HomeActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -70,11 +71,13 @@ public class LoginActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            navigateToActivity();
+            navigateToHome();
         }
     }
 
-    private void navigateToActivity() {
+    private void navigateToHome() {
+        Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
+        startActivity(homeIntent);
     }
 
     @OnClick(R.id.mail_login)
@@ -149,17 +152,19 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-                        navigateToActivity();
-                        Toast.makeText(LoginActivity.this, "Success!",
-                                Toast.LENGTH_LONG).show();
+                        debugToast("Success!");
+                        navigateToHome();
                     } else {
                         // If sign in fails, display a message to the user.
-                        Log.i("Statuss", "signInWithEmail:failure", task.getException());
-                        Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                Toast.LENGTH_LONG).show();
+                        debugToast("Failed!");
                     }
 
                 });
+    }
+
+    private void debugToast(String msg) {
+        Toast.makeText(LoginActivity.this, msg,
+                Toast.LENGTH_LONG).show();
     }
 
 
