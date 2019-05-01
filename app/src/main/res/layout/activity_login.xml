@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:focusableInTouchMode="true"
+    tools:context=".Auth.LoginActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/login_icon"
+        android:orientation="horizontal"
+        android:src="@drawable/chat_icon">
+
+
+    </ImageView>
+
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="@dimen/edittext_width"
+        android:layout_height="@dimen/edittext_height"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/email_margin_top"
+        android:autofillHints="@string/autofill_email"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/login_mail"
+            android:layout_width="@dimen/edittext_width"
+            android:layout_height="@dimen/edittext_height"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/email_margin_top"
+            android:autofillHints="@string/autofill_email"
+            android:background="@drawable/rounded_edittext"
+            android:drawableStart="@drawable/ic_mail"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/drawable_padding"
+            android:textColorHint="@color/colorFontGrey" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+
+        android:id="@+id/login_password_layout"
+        android:layout_width="@dimen/edittext_width"
+        android:layout_height="@dimen/edittext_height"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/password_margin_top"
+        android:gravity="center"
+        app:passwordToggleDrawable="@drawable/password_toggle"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/colorFontGrey">
+
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="@dimen/edittext_width"
+            android:layout_height="@dimen/edittext_height"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/password_margin_top"
+            android:autofillHints="@string/autofill_password"
+            android:background="@drawable/rounded_edittext"
+            android:drawableStart="@drawable/ic_lock"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="@dimen/drawable_padding"
+            android:textColorHint="@color/colorFontGrey" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <FrameLayout
+        android:id="@+id/button_frame"
+        android:layout_width="@dimen/btnframe_width"
+        android:layout_height="@dimen/btnframe_height"
+        android:layout_above="@+id/register_text"
+        android:layout_alignStart="@+id/mail_login"
+        android:layout_alignTop="@+id/mail_login"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/login_button"
+        android:orientation="vertical">
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/mail_login"
+        android:layout_width="@dimen/btnframe_width"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_password_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/login_btn_margin_top"
+        android:background="?android:attr/selectableItemBackground"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/login"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/register_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mail_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:text="@string/register"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/forgot_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mail_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/forgot_margin_top"
+        android:text="@string/forg_pass"
+        android:textColor="@color/colorPrimary" />
+
+
+</RelativeLayout>
