@@ -20,6 +20,9 @@
 
     <!-- Home Activity -->
     <string name="toolbar_text">Home</string>
+    <string name="chat_tab">Chats</string>
+    <string name="group_tab">Groups</string>
+    <string name="contacts_tab">Contacts</string>
 
 
 </resources>

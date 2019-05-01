@@ -15,8 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bahaa.chatapp.Home.HomeActivity;
 import com.example.bahaa.chatapp.R;
-import com.example.bahaa.chatapp.Root.HomeActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
