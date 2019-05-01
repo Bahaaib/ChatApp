@@ -1,12 +1,15 @@
 package com.example.bahaa.chatapp.Root;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.bahaa.chatapp.Chat.ChatActivity;
 import com.example.bahaa.chatapp.R;
 
 import java.util.ArrayList;
@@ -57,6 +60,8 @@ public class GroupRecyclerAdapter extends RecyclerView.Adapter {
 
         @BindView(R.id.group_title)
         TextView groupTitle;
+        @BindView(R.id.group_card)
+        CardView groupCard;
 
         public GroupViewHolder(View itemView) {
             super(itemView);
@@ -69,6 +74,13 @@ public class GroupRecyclerAdapter extends RecyclerView.Adapter {
         //Here where all the glory being made..!
         public void BindView(final int position) {
             groupTitle.setText(adapterModel.get(position));
+
+            groupCard.setOnClickListener(v -> {
+                Intent chatIntent = new Intent(context, ChatActivity.class);
+                chatIntent.putExtra("db_type", "groups");
+                chatIntent.putExtra("db_target", adapterModel.get(position));
+                context.startActivity(chatIntent);
+            });
         }
 
 
