@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Home.HomeActivity"></activity>
+        <activity android:name=".Home.HomeActivity" />
+        <activity android:name=".Chat.ChatActivity"></activity>
     </application>
 
 </manifest>
