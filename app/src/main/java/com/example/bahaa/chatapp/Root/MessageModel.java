@@ -2,27 +2,27 @@ package com.example.bahaa.chatapp.Root;
 
 public class MessageModel {
 
-    private String senderName;
+    private String messageSenderName;
 
-    private String body;
+    private String messageBody;
 
     public MessageModel() {
         //Required empty public constructor
     }
 
-    public String getSenderName() {
-        return senderName;
+    public String getMessageSenderName() {
+        return messageSenderName;
     }
 
-    public void setSenderName(String senderName) {
-        this.senderName = senderName;
+    public void setMessageSenderName(String messageSenderName) {
+        this.messageSenderName = messageSenderName;
     }
 
-    public String getBody() {
-        return body;
+    public String getMessageBody() {
+        return messageBody;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setMessageBody(String messageBody) {
+        this.messageBody = messageBody;
     }
 }

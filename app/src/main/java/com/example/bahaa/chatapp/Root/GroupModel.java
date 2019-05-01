@@ -2,17 +2,17 @@ package com.example.bahaa.chatapp.Root;
 
 public class GroupModel {
 
-    private String title;
+    private String groupTitle;
 
     public GroupModel() {
         //Required empty public constructor
     }
 
-    public String getTitle() {
-        return title;
+    public String getGroupTitle() {
+        return groupTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setGroupTitle(String groupTitle) {
+        this.groupTitle = groupTitle;
     }
 }
