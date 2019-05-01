@@ -5,11 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.bahaa.chatapp.R;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MessageRecyclerAdapter extends RecyclerView.Adapter {
@@ -31,7 +33,7 @@ public class MessageRecyclerAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.group_card, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.message_card, parent, false);
 
         return new MessageRecyclerAdapter.MessageViewHolder(view);
     }
@@ -52,7 +54,10 @@ public class MessageRecyclerAdapter extends RecyclerView.Adapter {
     //Here we bind all the children views of each cardView with their corresponding
     // actions to show & interact with them
     public class MessageViewHolder extends RecyclerView.ViewHolder {
-
+        @BindView(R.id.sender_name)
+        TextView senderName;
+        @BindView(R.id.message_body)
+        TextView messageBody;
 
         public MessageViewHolder(View itemView) {
             super(itemView);
@@ -64,7 +69,8 @@ public class MessageRecyclerAdapter extends RecyclerView.Adapter {
 
         //Here where all the glory being made..!
         public void BindView(final int position) {
-
+            senderName.setText(adapterModel.get(position).getMessageSenderName() + ": ");
+            messageBody.setText(adapterModel.get(position).getMessageBody());
         }
 
 
