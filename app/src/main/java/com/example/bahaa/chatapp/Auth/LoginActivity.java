@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bahaa.chatapp.Chat.ChatActivity;
 import com.example.bahaa.chatapp.Home.HomeActivity;
 import com.example.bahaa.chatapp.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -167,14 +166,7 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(LoginActivity.this, msg,
                 Toast.LENGTH_LONG).show();
     }
-
-    @OnClick(R.id.register_text)
-    public void chatAct() {
-        Intent homeIntent = new Intent(LoginActivity.this, ChatActivity.class);
-        startActivity(homeIntent);
-    }
-
-
+    
     @Override
     protected void onDestroy() {
         super.onDestroy();
